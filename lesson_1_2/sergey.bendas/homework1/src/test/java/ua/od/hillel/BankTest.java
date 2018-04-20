@@ -20,6 +20,12 @@ public class BankTest {
   Human user1;
   @Mock
   Human user2;
+  @Mock
+  Account testAccount1;
+  @Mock
+  Account testAccount2;
+  @Mock
+  Account testAccount3;
 
   @Before
   public void createBank() {
@@ -37,4 +43,11 @@ public class BankTest {
     assertThat(bank.countMoney(), is(3000));
   }
 
+  @Test
+  public void shouldCountAccounts() {
+    bank.addAccount(testAccount1);
+    bank.addAccount(testAccount2);
+    bank.addAccount(testAccount3);
+    assertThat(bank.countAccounts(), is(3));
+  }
 }

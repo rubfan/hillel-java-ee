@@ -27,4 +27,12 @@ public class Bank {
     }
     return money;
   }
+
+  public int countAccounts() {
+    return accounts.size();
+  }
+
+  public List<Account> getAccounts() {
+    return accounts;
+  }
 }
