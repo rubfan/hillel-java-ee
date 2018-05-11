@@ -1,5 +1,6 @@
 package ua.pp.darknsoft.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,10 +12,12 @@ import ua.pp.darknsoft.services.Calculator;
 
 @Controller
 public class MainController {
+    @Autowired
+    Calculator calculator;
 
     @GetMapping(value = "/")
     @ResponseBody
-    public Hello helloPage(){
+    public Hello helloPage() {
 
         return new Hello();
     }
@@ -26,16 +29,16 @@ public class MainController {
         double res;
         switch (operation) {
             case "add":
-                res = Calculator.add(value1, value2);
+                res = calculator.add(value1, value2);
                 break;
             case "div":
-                res = Calculator.div(value1, value2);
+                res = calculator.div(value1, value2);
                 break;
             case "mul":
-                res = Calculator.mul(value1, value2);
+                res = calculator.mul(value1, value2);
                 break;
             case "sub":
-                res = Calculator.sub(value1, value2);
+                res = calculator.sub(value1, value2);
                 break;
             default:
                 res = 0.0;
